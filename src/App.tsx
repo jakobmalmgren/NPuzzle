@@ -5,4 +5,4 @@ import BoardComponent from "./components/BoardComponent";
 
 export default function App() {
   return <BoardComponent></BoardComponent>;
-}
+}..
