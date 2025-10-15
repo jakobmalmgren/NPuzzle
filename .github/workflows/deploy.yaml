@@ -30,3 +30,55 @@ jobs:
       - name: deploy to github pages
         uses: actions/deploy-pages@v4
         id: deployment
+# # 🔷 Namnet på workflowen — visas i GitHub under "Actions"-fliken
+# name: Deploy to github pages
+
+# # 🔷 När ska workflowen köras?
+# # Här körs den automatiskt varje gång du pushar till "main"-grenen.
+# on:
+#   push:
+#     branches:
+#       - main
+
+# # 🔷 Behörigheter som krävs för att jobba med GitHub Pages (och artifacts).
+# permissions:
+#   contents: read       # Kan läsa innehållet i repo
+#   pages: write         # Får skriva till GitHub Pages
+#   id-token: write      # Behövs för autentisering mot GitHub Pages
+
+# # 🔷 Jobben som ska köras
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest  # Kör på en virtuell Linux-maskin (Ubuntu)
+
+#     steps:
+#       # 📦 1. Klonar (hämtar) koden från GitHub-repot
+#       - name: klona repot
+#         uses: actions/checkout@v4
+
+#       # 📦 2. Installerar alla npm-paket från package.json
+#       - name: install dependencies
+#         run: npm install
+
+#       # 🛠️ 3. Bygger projektet (t.ex. kör Vite eller annan bundler)
+#       # Det skapas då en "dist" mapp med färdiga HTML/CSS/JS-filer
+#       - name: build dist
+#         run: npm run build
+
+#       # 🌐 4. Förbereder GitHub Pages att ta emot nya filer
+#       # Denna action måste köras innan upload + deploy
+#       - name: setup pages
+#         uses: actions/configure-pages@v3
+
+#       # ☁️ 5. Laddar upp "dist"-mappen som en artifact tillfälligt
+#       # GitHub Pages tar senare denna artifact och publicerar innehållet
+#       - name: upload distfile
+#         uses: actions/upload-pages-artifact@v3
+#         with:
+#           path: "./dist"  # Mappen med de färdigbyggda filerna
+
+#       # 🚀 6. Själva publiceringen till GitHub Pages
+#       # Tar filerna från ovan och laddar upp till Pages
+#       - name: deploy to github pages
+#         uses: actions/deploy-pages@v4
+#         id: deployment  # Identifierare (kan användas för referens om man vill)
